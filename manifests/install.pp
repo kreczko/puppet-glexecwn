@@ -1,5 +1,7 @@
 class glexecwn::install {
 
+  include ('glexecwn::params')
+
   #
   # install and configure the emi glexec enabled worker node
   #
@@ -11,17 +13,22 @@ class glexecwn::install {
   class {"emi_wn":}
   class {"emi_glexec_wn":}
   
-  exec {"glexecperms":
-    command => '/bin/chgrp glexec /usr/sbin/glexec ; /bin/chmod 06111 /usr/sbin/glexec'
+  #
+  file{'/usr/sbin/glexec':
+    ensure => file,
+    replace => false,
+    mode => '6111',
+    owner => 'root',
+    group => 'glexec',
   }
-
+  
   # setup environment for glExec WN
   include ('glexecwn::env')
   include ('glexecwn::site-env')
 
   # configure VOs
   class {'vosupport':
-    supported_vos => $supported_vos, #prod.vo.eu-eela.eu: missing voms
+    supported_vos => $glexecwn::params::supported_vos, #prod.vo.eu-eela.eu: missing voms
     enable_mappings_for_service => 'ARGUS'
   }
 
@@ -31,6 +38,5 @@ class glexecwn::install {
     group => "root",
   }
   
-#  Class["glexecwn::repositories"]->Package["dummydpm","emi-wn","emi-glexec_wn"] -> Exec["glexecperms"] -> File["/var/log/glexec"] -> Class["vosupport","glexecwn::env","glexecwn::site-env"]
-  Class["glexecwn::repositories"] -> Package["dummydpm"] -> Class["emi_wn","emi_glexec_wn"] -> Exec["glexecperms"] -> File["/var/log/glexec"] -> Class["vosupport","glexecwn::env","glexecwn::site-env"]
+  Class["glexecwn::repositories"] -> Package["dummydpm"] -> Class["emi_wn","emi_glexec_wn"] -> File["/usr/sbin/glexec"] -> File["/var/log/glexec"] -> Class["vosupport","glexecwn::env","glexecwn::site-env"]
 }

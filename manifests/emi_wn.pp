@@ -19,6 +19,9 @@ class glexecwn::emi_wn {
           package {["glite-jobid-api-c","glite-lb-client","glite-lb-common","glite-lb-client-progs","glite-lbjp-common-gss","glite-lbjp-common-trio","glite-service-discovery-api-c","glite-wms-brokerinfo-access","glite-wn-info","glite-yaim-clients","glite-yaim-core","lcg-ManageVOTag","lcg-tags","lcg-util-python26","lfc-devel","lfc-python26","openldap-clients","python-ldap"]:
             ensure => present,
           }
+          package {["gfal2-all","gfal2-plugin-rfio","gfal2-python","jclassads","lcg-info","lcg-infosites","voms-devel"]:
+            ensure => present,
+          }
         }
         
       6:
@@ -34,6 +37,9 @@ class glexecwn::emi_wn {
           }
           package {["glite-jobid-api-c","glite-lb-client","glite-lb-common","glite-lb-client-progs","glite-lbjp-common-gss","glite-lbjp-common-trio","glite-service-discovery-api-c","glite-wms-brokerinfo-access","glite-wn-info","glite-yaim-clients","glite-yaim-core","lcg-ManageVOTag","lcg-tags","lfc-devel","openldap-clients","python-ldap"]:
             ensure => present,
+          }
+          package {["gfal2-all","gfal2-plugin-rfio","gfal2-python","jclassads","lcg-info","lcg-infosites","voms-devel"]:
+            ensure=>present,
           }
         }
           
