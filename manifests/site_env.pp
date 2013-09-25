@@ -1,4 +1,4 @@
-class glexecwn::site-env inherits glexecwn::params 
+class glexecwn::site_env inherits glexecwn::params 
 {
   concat::fragment{'site-env global': 
     target  => $gridenvfile,
