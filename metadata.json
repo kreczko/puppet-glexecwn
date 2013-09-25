@@ -12,6 +12,10 @@
     {
       "name": "puppetlabs/concat",
       "version_requirement": "\u003e\u003d1.0.0"
+    },
+    {
+      "name": "cernops/fetchcrl",
+      "version_requirement": "\u003e\u003d0.0.2"
     }
   ],
   "types": [],

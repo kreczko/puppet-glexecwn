@@ -7,3 +7,4 @@ description 'This modules provides classes and definitions required for a glExec
 project_page 'http://www.eu-emi.eu/'
 dependency 'puppetlabs-stdlib', '>=4.1.0'
 dependency 'puppetlabs-concat', '>=1.0.0'
+dependency 'cernops-fetchcrl', '>=0.0.2'
