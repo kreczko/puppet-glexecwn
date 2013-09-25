@@ -1,17 +1,17 @@
 class glexecwn::wninfo(){
-  file {"/etc/glite-wn-info":
+  file {'/etc/glite-wn-info':
     ensure => directory,
-    owner => "root",
-    group => "root",
+    owner => 'root',
+    group => 'root',
     mode => 0755,    
   }
   
-  file {"/etc/glite-wn-info/glite-wn-info.conf":
+  file {'/etc/glite-wn-info/glite-wn-info.conf':
     ensure => present,
-    content => template("glexecwn/wninfo.erb"),
-    owner => "root",
-    group => "root",
+    content => template('glexecwn/wninfo.erb'),
+    owner => 'root',
+    group => 'root',
     mode => 0644,
-    require => File["/etc/glite-wn-info"],
+    require => File['/etc/glite-wn-info'],
   } 
 }
