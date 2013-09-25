@@ -1,0 +1,16 @@
+{
+  "version": "0.0.1",
+  "summary": "Glexec enabled Grid worker node for CERN",
+  "author": "schwicke",
+  "description": "This modules provides classes and definitions required for a glExec enabled worker node with Argus",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib"
+    }
+  ],
+  "types": [],
+  "checksums": {},
+  "source": "",
+  "project_page": "http://www.eu-emi.eu/",
+  "license": "Apache License, Version 2.0 (the \"License\")"
+}
