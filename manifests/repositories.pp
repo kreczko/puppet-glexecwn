@@ -4,7 +4,7 @@ class glexecwn::repositories {
   # stuff from there
   #
 
-#  include 'emirepos::emi2repositories'
+  #  include 'emirepos::emi2repositories'
 
   yumrepo { 'EMI_3_base':
     baseurl  => "http://emisoft.web.cern.ch/emisoft/dist/EMI/3/sl6/\$basearch/base",
