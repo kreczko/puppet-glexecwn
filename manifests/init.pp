@@ -1,21 +1,21 @@
 class glexecwn (
-  $supported_vos      = $glexecwn::params::supported_vos,
-  $argus_server       = $glexecwn::params::argus_server,
   $argus_port         = $glexecwn::params::argus_port,
-  $user_white_list    = $glexecwn::params::user_white_list,
+  $argus_server       = $glexecwn::params::argus_server,
+  $glexec_location    = $glexecwn::params::glexec_location,
+  $glite_env_set      = $glexecwn::params::glite_env_set,
+  $glite_location     = $glexecwn::params::glite_location,
+  $glite_location_var = $glexecwn::params::glite_location_var,
   $gridenvfile        = $glexecwn::params::gridenvfile,
   $gridmapdir         = $glexecwn::params::gridmapdir,
   $grid_env_location  = $glexecwn::params::grid_env_location,
-  $srm_path           = $glexecwn::params::srm_path,
-  $site_name          = $glexecwn::params::site_name,
+  $gt_proxy_mode      = $glexecwn::params::gt_proxy_mode,
   $myproxy_server     = $glexecwn::params::myproxy_server,
   $lcg_gfal_infosys   = $glexecwn::params::lcg_gfal_infosys,
   $lcg_location       = $glexecwn::params::lcg_location,
-  $gt_proxy_mode      = $glexecwn::params::gt_proxy_mode,
-  $glite_location     = $glexecwn::params::glite_location,
-  $glite_location_var = $glexecwn::params::glite_location_var,
-  $glite_env_set      = $glexecwn::params::glite_env_set,
-  $glexec_location    = $glexecwn::params::glexec_location,) {
+  $site_name          = $glexecwn::params::site_name,
+  $srm_path           = $glexecwn::params::srm_path,
+  $supported_vos      = $glexecwn::params::supported_vos,
+  $user_white_list    = $glexecwn::params::user_white_list,) {
   case $::operatingsystem {
     RedHat, SLC, SL, Scientific : {
       require fetchcrl
@@ -32,6 +32,7 @@ class glexecwn (
         glite_location_var => $glite_location_var,
         glexec_location    => $glexec_location,
         gt_proxy_mode      => $gt_proxy_mode,
+        lcg_gfal_infosys   => $lcg_gfal_infosys,
         lcg_location       => $lcg_location,
         myproxy_server     => $myproxy_server,
         site_name          => $site_name,
@@ -61,7 +62,7 @@ class glexecwn (
       Class['glexecwn::repositories'] -> Class['emi_wn', 'emi_glexec_wn'] ->
       Exec['glexecperms'] -> File['/var/log/glexec'] -> Class['glexecwn::env']
     }
-    default         : {
+    default                     : {
       # There is some fedora configuration present but I can't actually get it
       # to work.
     }
