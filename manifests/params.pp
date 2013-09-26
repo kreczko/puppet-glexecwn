@@ -1,20 +1,28 @@
 class glexecwn::params {
-  $user_white_list    = hiera('user_white_list', ' ')
   $argus_server       = hiera('argus_server', 'localhost')
   $argus_port         = hiera('argus_port', '8154')
-  $srm_path           = hiera('srm_path', '/opt/d-cache/srm')
-  $site_name          = hiera('site_name', 'unset')
-  $myproxy_server     = hiera('myproxy_server', 'localhost')
-  $lcg_location       = hiera('lcg_location', '/usr')
-  $lcg_gfal_infosys   = hiera('lcg_gfal_infosys', 'unset')
-  $gt_proxy_mode      = hiera('gt_proxy_mode', 'old')
-  $grid_env_location  = hiera('grid_env_location', '/usr/libexec')
-  $gridmapdir         = hiera('gridmapdir', '/etc/grid-security/gridmapdir')
-  $glite_location_var = hiera('glite_location_var', '/var')
-  $glite_location     = hiera('glite_location', '/usr')
-  $glite_env_set      = hiera('glite_env_set', true)
+  
   $glexec_location    = hiera('glexec_location', '/usr')
+  
+  $glite_env_set      = hiera('glite_env_set', true)
+  $glite_location     = hiera('glite_location', '/usr')
+  $glite_location_var = hiera('glite_location_var', '/var')
+  
   $gridenvfile        = hiera('gridenvfile', '/etc/profile.d/grid-env.sh')
+  $gridmapdir         = hiera('gridmapdir', '/etc/grid-security/gridmapdir')
+  $grid_env_location  = hiera('grid_env_location', '/usr/libexec')
+  
+  $gt_proxy_mode      = hiera('gt_proxy_mode', 'old')
+  
+  $install_dummydpm   = hiera('install_dummydpm', true)
+  
+  $myproxy_server     = hiera('myproxy_server', 'localhost')
+  
+  $lcg_gfal_infosys   = hiera('lcg_gfal_infosys', 'unset')
+  $lcg_location       = hiera('lcg_location', '/usr')
+
+  $site_name          = hiera('site_name', 'unset')
+  $srm_path           = hiera('srm_path', '/opt/d-cache/srm')
   $supported_vos      = hiera('supported_vos', [
     atlas,
     cms,
@@ -33,6 +41,6 @@ class glexecwn::params {
     unosat,
     'vo.gear.cern.ch',
     'vo.sixt.cern.ch'])
-  $install_dummydpm   = hiera('install_dummydpm', true)
-
+    
+  $user_white_list    = hiera('user_white_list', ' ')
 }
