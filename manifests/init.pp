@@ -9,6 +9,7 @@ class glexecwn (
   $gridmapdir         = $glexecwn::params::gridmapdir,
   $grid_env_location  = $glexecwn::params::grid_env_location,
   $gt_proxy_mode      = $glexecwn::params::gt_proxy_mode,
+  $install_dummydpm   = $glexecwn::params::install_dummydpm,
   $myproxy_server     = $glexecwn::params::myproxy_server,
   $lcg_gfal_infosys   = $glexecwn::params::lcg_gfal_infosys,
   $lcg_location       = $glexecwn::params::lcg_location,
@@ -21,7 +22,10 @@ class glexecwn (
       require fetchcrl
       include('glexecwn::repositories')
 
-      class { 'glexecwn::install': supported_vos => $supported_vos, }
+      class { 'glexecwn::install':
+        supported_vos    => $supported_vos,
+        install_dummydpm => $install_dummydpm,
+      }
 
       class { 'glexecwn::config':
         gridenvfile        => $gridenvfile,
