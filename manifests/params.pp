@@ -2,11 +2,6 @@ class glexecwn::params {
   $argus_server       = hiera('argus_server', 'localhost')
   $argus_port         = hiera('argus_port', '8154')
 
-  $glexec_wn_package  = {
-    2         => 'emi-glexec_wn',
-    3         => 'glexec_wn',
-    'default' => 'emi-glexec_wn',
-  }
   $emi_version        = hiera('emi_version', 2)
 
   $glexec_location    = hiera('glexec_location', '/usr')

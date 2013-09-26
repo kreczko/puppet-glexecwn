@@ -16,8 +16,13 @@ class glexecwn::install (
   #  class { 'emi_wn':
   #  }
 
+  $glexec_wn_package = {
+    2 => 'emi-glexec_wn',
+    3 => 'glexec_wn',
+  }
+
   class { 'emi_glexec_wn':
-    emi_glexec_wn => $glexecwn::params::glexec_wn_package[$emi_version]
+    emi_glexec_wn => $glexec_wn_package[$emi_version]
   }
 
   exec { 'glexecperms': command => '/bin/chgrp glexec /usr/sbin/glexec ; /bin/chmod 06111 /usr/sbin/glexec' 

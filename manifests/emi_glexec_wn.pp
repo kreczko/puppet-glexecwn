@@ -1,5 +1,5 @@
 class glexecwn::emi_glexec_wn (
-  $emi_glexec_wn = $glexecwn::params::glexec_wn_package['default']) {
+  $emi_glexec_wn = 'emi-glexec_wn') {
   # lcas-plugins-basic
   # emi-version
   # mkgltempdir
