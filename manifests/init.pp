@@ -16,7 +16,7 @@ class glexecwn (
   $glite_env_set      = $glexecwn::params::glite_env_set,
   $glexec_location    = $glexecwn::params::glexec_location,) {
   case $::operatingsystem {
-    RedHat, SLC, SL : {
+    RedHat, SLC, SL, Scientific : {
       require fetchcrl
       include('glexecwn::repositories')
 
