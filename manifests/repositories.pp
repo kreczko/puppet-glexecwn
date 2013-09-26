@@ -7,7 +7,8 @@ class glexecwn::repositories {
   #  include 'emirepos::emi2repositories'
 
   yumrepo { 'EMI_3_base':
-    name => 'emi-3-base',
+    name     => 'emi-3-base',
+    descr    => 'EMI - $basearch - base',
     baseurl  => "http://emisoft.web.cern.ch/emisoft/dist/EMI/3/sl6/\$basearch/base",
     gpgcheck => 1,
     gpgkey   => 'http://emisoft.web.cern.ch/emisoft/dist/EMI/3/RPM-GPG-KEY-emi',
@@ -16,7 +17,8 @@ class glexecwn::repositories {
   }
 
   yumrepo { 'EMI_3_contribs':
-    name => 'emi-3-contribs',
+    name     => 'emi-3-contribs',
+    descr    => 'EMI - $basearch - contribs',
     baseurl  => "http://emisoft.web.cern.ch/emisoft/dist/EMI/3/sl6/\$basearch/contribs",
     gpgcheck => 1,
     gpgkey   => 'http://emisoft.web.cern.ch/emisoft/dist/EMI/3/RPM-GPG-KEY-emi',
@@ -25,7 +27,8 @@ class glexecwn::repositories {
   }
 
   yumrepo { 'EMI_3_third-party':
-    name => 'emi-3-third-party',
+    name     => 'emi-3-third-party',
+    descr    => 'EMI - $basearch - third-party',
     baseurl  => "http://emisoft.web.cern.ch/emisoft/dist/EMI/3/sl6/\$basearch/third-party",
     gpgcheck => 1,
     gpgkey   => 'http://emisoft.web.cern.ch/emisoft/dist/EMI/3/RPM-GPG-KEY-emi',
@@ -34,7 +37,8 @@ class glexecwn::repositories {
   }
 
   yumrepo { 'EMI_3_updates':
-    name => 'emi-3-updates',
+    name     => 'emi-3-updates',
+    descr    => 'EMI - $basearch - updates',
     baseurl  => "http://emisoft.web.cern.ch/emisoft/dist/EMI/3/sl6/\$basearch/updates",
     gpgcheck => 1,
     gpgkey   => 'http://emisoft.web.cern.ch/emisoft/dist/EMI/3/RPM-GPG-KEY-emi',
