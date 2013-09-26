@@ -1,4 +1,5 @@
-class glexecwn::emi_glexec_wn {
+class glexecwn::emi_glexec_wn (
+  $emi_glexec_wn = $glexecwn::params::glexec_wn_package['default']) {
   # lcas-plugins-basic
   # emi-version
   # mkgltempdir
@@ -19,6 +20,5 @@ class glexecwn::emi_glexec_wn {
   # rpmlib(PayloadFilesHavePrefix) <= 4.0-1
   # rpmlib(CompressedFileNames) <= 3.0.4-1
 
-
-  package { emi-glexec_wn: ensure => present, }
+  package { $emi_glexec_wn: ensure => present, }
 }

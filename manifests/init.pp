@@ -1,6 +1,7 @@
 class glexecwn (
   $argus_port         = $glexecwn::params::argus_port,
   $argus_server       = $glexecwn::params::argus_server,
+  $emi_version        = $glexecwn::params::emi_version,
   $glexec_location    = $glexecwn::params::glexec_location,
   $glite_env_set      = $glexecwn::params::glite_env_set,
   $glite_location     = $glexecwn::params::glite_location,
@@ -23,8 +24,9 @@ class glexecwn (
       include('glexecwn::repositories')
 
       class { 'glexecwn::install':
-        supported_vos    => $supported_vos,
+        emi_version      => $emi_version,
         install_dummydpm => $install_dummydpm,
+        supported_vos    => $supported_vos,
       }
 
       class { 'glexecwn::config':
