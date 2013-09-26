@@ -18,7 +18,7 @@ class glexecwn::install (
 
   $glexec_wn_package = {
     2 => 'emi-glexec_wn',
-    3 => 'glexec_wn',
+    3 => 'glexec-wn',
   }
 
   class { 'emi_glexec_wn':
