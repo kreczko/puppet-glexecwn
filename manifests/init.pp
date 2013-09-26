@@ -59,7 +59,7 @@ class glexecwn (
        * Class['vosupport','glexecwn::env','glexecwn::site-env']
        */
 
-      Class['glexecwn::repositories'] -> Class['emi_wn', 'emi_glexec_wn'] ->
+      Class['glexecwn::repositories'] -> Class['emi_glexec_wn'] ->
       Exec['glexecperms'] -> File['/var/log/glexec'] -> Class['glexecwn::env']
     }
     default                     : {
