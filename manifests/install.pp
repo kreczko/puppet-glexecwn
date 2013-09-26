@@ -9,8 +9,10 @@ class glexecwn::install (
   }
 
   # install worker node software
-  class { 'emi_wn':
-  }
+  #according to http://wiki.nikhef.nl/grid/GLExec_Argus_Quick_Installation_Guide
+  # emi_wn is not needed 
+#  class { 'emi_wn':
+#  }
 
   class { 'emi_glexec_wn':
   }
