@@ -1,4 +1,4 @@
-class glexecwn::install {
+class glexecwn::install ($supported_vos = $glexecwn::params::supported_vos,) {
 
   #
   # install and configure the emi glexec enabled worker node
