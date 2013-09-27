@@ -2,10 +2,11 @@
 # install the emi glexec enabled worker node
 #
 class glexecwn::install (
-  $supported_vos    = $glexecwn::params::supported_vos,
-  $install_dummydpm = $glexecwn::params::install_dummydpm,
-  $install_emi_wn   = $glexecwn::params::install_emi_wn,
-  $emi_version      = $glexecwn::params::emi_version,) {
+  $supported_vos      = $glexecwn::params::supported_vos,
+  $install_dummydpm   = $glexecwn::params::install_dummydpm,
+  $install_emi_wn     = $glexecwn::params::install_emi_wn,
+  $glexec_permissions = $glexecwn::params::glexec_permissions,
+  $emi_version        = $glexecwn::params::emi_version,) {
   if $install_dummydpm == true {
     package { dummydpm: ensure => present, }
   }
@@ -33,7 +34,7 @@ class glexecwn::install (
   file { '/usr/sbin/glexec':
     ensure => present,
     group  => 'glexec',
-    mode   => '0611',
+    mode   => $glexec_permissions,
   }
 
   if $install_emi_wn == true {
