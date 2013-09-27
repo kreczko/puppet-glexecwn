@@ -65,8 +65,8 @@ class glexecwn (
        * Class['vosupport','glexecwn::env','glexecwn::site-env']
        */
 
-      Class['glexecwn::repositories'] -> Class['emi_glexec_wn'] ->
-      Exec['glexecperms'] -> File['/var/log/glexec'] -> Class['glexecwn::env']
+      Class['glexecwn::repositories'] -> Class['glexecwn::install'] -> Class['glexecwn::config'
+        ]
     }
     default                     : {
       # There is some fedora configuration present but I can't actually get it

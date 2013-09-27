@@ -47,4 +47,5 @@ class glexecwn::config (
     owner  => 'root',
     group  => 'root',
   }
+  File['/var/log/glexec'] -> Class['glexecwn::env']
 }
