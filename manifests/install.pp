@@ -4,9 +4,14 @@
 class glexecwn::install (
   $supported_vos    = $glexecwn::params::supported_vos,
   $install_dummydpm = $glexecwn::params::install_dummydpm,
+  $install_emi_wn   = $glexecwn::params::install_emi_wn,
   $emi_version      = $glexecwn::params::emi_version,) {
   if $install_dummydpm == true {
     package { dummydpm: ensure => present, }
+  }
+
+  if $install_emi_wn == true {
+    class { 'emi_wn': }
   }
 
   # install worker node software
@@ -31,6 +36,10 @@ class glexecwn::install (
     mode   => '0611',
   }
 
-  Class['emi_glexec_wn'] -> File['/usr/sbin/glexec']
+  if $install_emi_wn == true {
+    Class['emi_glexec_wn'] -> File['/usr/sbin/glexec']
+  } else {
+    Class['emi_wn'] -> Class['emi_glexec_wn'] -> File['/usr/sbin/glexec']
+  }
 
 }
