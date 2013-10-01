@@ -18,5 +18,6 @@ class glexecwn::params {
   $supported_vos = hiera('supported_vos',[atlas, cms, lhcb, alice, dteam, ops, 'vo.aleph.cern.ch', 'vo.delphi.cern.ch', 'vo.l3.cern.ch', 
         'vo.opal.cern.ch', ilc, 'envirogrids.vo.eu-egee.org', geant4, na48, unosat, 'vo.gear.cern.ch',
         'vo.sixt.cern.ch'])
+  $emi_version        = hiera('emi_version', 2)
   
 }
