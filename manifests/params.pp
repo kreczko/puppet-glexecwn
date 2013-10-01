@@ -19,5 +19,5 @@ class glexecwn::params {
         'vo.opal.cern.ch', ilc, 'envirogrids.vo.eu-egee.org', geant4, na48, unosat, 'vo.gear.cern.ch',
         'vo.sixt.cern.ch'])
   $emi_version        = hiera('emi_version', 2)
-  
+  $install_dummydpm   = hiera('install_dummydpm', true)
 }
