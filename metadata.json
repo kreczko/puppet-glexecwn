@@ -1,0 +1,30 @@
+{
+  "name": "cernops-glexecwn",
+  "version": "0.0.1",
+  "summary": "Glexec enabled Grid worker node for CERN",
+  "author": "schwicke",
+  "description": "This modules provides classes and definitions required for a glExec enabled worker node with Argus",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": "\u003e\u003d4.1.0"
+    },
+    {
+      "name": "cernops/fetchcrl",
+      "version_requirement": "\u003e\u003d0.0.2"
+    },
+    {
+      "name": "puppetlabs/concat",
+      "version_requirement": "\u003e\u003d1.0.0"
+    },
+    {
+      "name": "cernops/vosupport",
+      "version_requirement": "\u003e\u003d0.0.1"
+    }
+  ],
+  "types": [],
+  "checksums": {},
+  "source": "",
+  "project_page": "http://www.eu-emi.eu/",
+  "license": "Apache License, Version 2.0 (the \"License\")"
+}
