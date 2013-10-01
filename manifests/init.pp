@@ -31,7 +31,6 @@ class glexecwn (
         glexec_permissions => $glexec_permissions,
         install_dummydpm   => $install_dummydpm,
         install_emi_wn     => $install_emi_wn,
-        supported_vos      => $supported_vos,
       }
 
       class { 'glexecwn::config':
@@ -48,6 +47,7 @@ class glexecwn (
         myproxy_server     => $myproxy_server,
         site_name          => $site_name,
         srm_path           => $srm_path,
+        supported_vos      => $supported_vos,
       }
 
       class { 'glexecwn::argus':
