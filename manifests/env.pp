@@ -46,4 +46,3 @@ class glexecwn::env (
     content => template('glexecwn/gridenv-site.sh.erb')
   }
 }
-

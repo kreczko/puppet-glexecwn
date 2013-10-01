@@ -57,4 +57,3 @@ class glexecwn::repositories (
   #  ensure => absent,
   #}
 }
-

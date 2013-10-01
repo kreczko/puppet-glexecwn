@@ -11,16 +11,12 @@ class glexecwn::install (
     package { dummydpm: ensure => present, }
   }
 
+  # according to
+  # http://wiki.nikhef.nl/grid/GLExec_Argus_Quick_Installation_Guide
+  # emi_wn is not required
   if $install_emi_wn == true {
     class { 'emi_wn': }
   }
-
-  # install worker node software
-  # according to
-  # http://wiki.nikhef.nl/grid/GLExec_Argus_Quick_Installation_Guide
-  # emi_wn is not needed
-  #  class { 'emi_wn':
-  #  }
 
   $glexec_wn_package = {
     2 => 'emi-glexec_wn',
@@ -42,5 +38,4 @@ class glexecwn::install (
   } else {
     Class['emi_wn'] -> Class['emi_glexec_wn'] -> File['/usr/sbin/glexec']
   }
-
 }
