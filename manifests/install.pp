@@ -2,7 +2,6 @@
 # install the emi glexec enabled worker node
 #
 class glexecwn::install (
-  $supported_vos      = $glexecwn::params::supported_vos,
   $install_dummydpm   = $glexecwn::params::install_dummydpm,
   $install_emi_wn     = $glexecwn::params::install_emi_wn,
   $glexec_permissions = $glexecwn::params::glexec_permissions,
