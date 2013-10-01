@@ -5,6 +5,7 @@ class glexecwn::params {
   $emi_version        = hiera('emi_version', 2)
 
   $glexec_location    = hiera('glexec_location', '/usr')
+  $glexec_permissions = hiera('glexec_permissions', '6111')
 
   $glite_env_set      = hiera('glite_env_set', true)
   $glite_location     = hiera('glite_location', '/usr')
