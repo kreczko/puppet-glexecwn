@@ -1,7 +1,7 @@
 class glexecwn inherits glexecwn::params {
   case $::operatingsystem {
     RedHat,SLC,SL:   {
-      require afs,fetchcrl
+      require fetchcrl
       include ('glexecwn::repositories')
       include ('glexecwn::install')
       include ('glexecwn::argus')
