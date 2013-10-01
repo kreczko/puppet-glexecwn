@@ -12,10 +12,10 @@ class glexecwn::params {
   $gridmapdir = hiera('gridmapdir','/etc/grid-security/gridmapdir')
   $glite_location_var = hiera('glite_location_var','/var')
   $glite_location = hiera('glite_location','/usr')
-  $glite_env_set = hiera('glite_env_set','true')
+  $glite_env_set = hiera('glite_env_set',true)
   $glexec_location = hiera('glexec_location','/usr')
   $gridenvfile = hiera('gridenvfile','/etc/profile.d/grid-env.sh')
-  $supported_vos = hiera("supported_vos",[atlas, cms, lhcb, alice, dteam, ops, 'vo.aleph.cern.ch', 'vo.delphi.cern.ch', 'vo.l3.cern.ch', 
+  $supported_vos = hiera('supported_vos',[atlas, cms, lhcb, alice, dteam, ops, 'vo.aleph.cern.ch', 'vo.delphi.cern.ch', 'vo.l3.cern.ch', 
         'vo.opal.cern.ch', ilc, 'envirogrids.vo.eu-egee.org', geant4, na48, unosat, 'vo.gear.cern.ch',
         'vo.sixt.cern.ch'])
   
