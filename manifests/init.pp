@@ -23,7 +23,8 @@ class glexecwn (
   case $::operatingsystem {
     RedHat, SLC, SL, Scientific : {
       require fetchcrl
-      include('glexecwn::repositories')
+
+      class { 'glexecwn::repositories': emi_version => $emi_version, }
 
       class { 'glexecwn::install':
         emi_version        => $emi_version,
@@ -54,7 +55,9 @@ class glexecwn (
         argus_port      => $argus_port,
         user_white_list => $user_white_list,
       }
-      include('glexecwn::wninfo')
+
+      class { 'glexecwn::wninfo':
+      }
 
       Class['glexecwn::repositories'] -> Class['glexecwn::install'] -> Class['glexecwn::config'
         ]
