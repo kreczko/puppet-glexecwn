@@ -13,7 +13,7 @@ class glexecwn::repositories (
     descr    => 'EMI - $basearch - base',
     baseurl  => "http://emisoft.web.cern.ch/emisoft/dist/EMI/${emi_version}/sl${major_release}/\$basearch/base",
     gpgcheck => 1,
-    gpgkey   => 'http://emisoft.web.cern.ch/emisoft/dist/EMI/${emi_version}/RPM-GPG-KEY-emi',
+    gpgkey   => "http://emisoft.web.cern.ch/emisoft/dist/EMI/${emi_version}/RPM-GPG-KEY-emi",
     enabled  => 1,
     priority => 40,
   }
@@ -23,7 +23,7 @@ class glexecwn::repositories (
     descr    => 'EMI - $basearch - contribs',
     baseurl  => "http://emisoft.web.cern.ch/emisoft/dist/EMI/${emi_version}/sl${major_release}/\$basearch/contribs",
     gpgcheck => 1,
-    gpgkey   => 'http://emisoft.web.cern.ch/emisoft/dist/EMI/${emi_version}/RPM-GPG-KEY-emi',
+    gpgkey   => "http://emisoft.web.cern.ch/emisoft/dist/EMI/${emi_version}/RPM-GPG-KEY-emi",
     enabled  => 1,
     priority => 40,
   }
@@ -33,7 +33,7 @@ class glexecwn::repositories (
     descr    => 'EMI - $basearch - third-party',
     baseurl  => "http://emisoft.web.cern.ch/emisoft/dist/EMI/${emi_version}/sl${major_release}/\$basearch/third-party",
     gpgcheck => 1,
-    gpgkey   => 'http://emisoft.web.cern.ch/emisoft/dist/EMI/${emi_version}/RPM-GPG-KEY-emi',
+    gpgkey   => "http://emisoft.web.cern.ch/emisoft/dist/EMI/${emi_version}/RPM-GPG-KEY-emi",
     enabled  => 1,
     priority => 40,
   }
@@ -43,7 +43,7 @@ class glexecwn::repositories (
     descr    => 'EMI - $basearch - updates',
     baseurl  => "http://emisoft.web.cern.ch/emisoft/dist/EMI/${emi_version}/sl${major_release}/\$basearch/updates",
     gpgcheck => 1,
-    gpgkey   => 'http://emisoft.web.cern.ch/emisoft/dist/EMI/${emi_version}/RPM-GPG-KEY-emi',
+    gpgkey   => "http://emisoft.web.cern.ch/emisoft/dist/EMI/${emi_version}/RPM-GPG-KEY-emi",
     enabled  => 1,
     priority => 40,
   }
