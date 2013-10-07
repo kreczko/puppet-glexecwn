@@ -21,7 +21,7 @@ class glexecwn::emi_glexec_wn {
 #rpmlib(CompressedFileNames) <= 3.0.4-1
 
   
-  package {emi-glexec_wn:
+  package {glexec-wn:
     ensure => present,
   }
 }
