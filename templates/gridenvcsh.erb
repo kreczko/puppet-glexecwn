@@ -11,6 +11,6 @@
 #
 
 set mycshtmpfile=`mktemp /tmp/gridenv.XXXXXX`
-bash -c "export ISCSHELL=yes ; source /usr/libexec/grid-env.sh" >> $mycshtmpfile
+bash -c "export ISCSHELL=yes ; source /etc/profile.d/grid-env.sh" >> $mycshtmpfile
 source $mycshtmpfile
 rm -f $mycshtmpfile

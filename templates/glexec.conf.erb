@@ -4,7 +4,7 @@
 [glexec]
 silent_logging               = no
 log_level                    = 3
-user_white_list              = <%=user_white_list%>
+user_white_list              = <%=@user_white_list%>
 linger                       = yes
 user_identity_switch_by      = glexec
 use_lcas                     = no
@@ -20,4 +20,4 @@ lcas_log_file                = /var/log/glexec/lcas_lcmaps.log
 lcas_debug_level             = 1
 lcas_log_level               = 1
 preserve_env_variables       = no
-log_destination              = syslog
+log_destination              = file

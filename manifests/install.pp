@@ -1,36 +1,41 @@
-class glexecwn::install {
-
-  #
-  # install and configure the emi glexec enabled worker node
-  #
-  package {dummydpm:
-    ensure => present,
+#
+# install the emi glexec enabled worker node
+#
+class glexecwn::install (
+  $install_dummydpm   = $glexecwn::params::install_dummydpm,
+  $install_emi_wn     = $glexecwn::params::install_emi_wn,
+  $glexec_permissions = $glexecwn::params::glexec_permissions,
+  $emi_version        = $glexecwn::params::emi_version,) {
+  if $install_dummydpm == true {
+    package { dummydpm: ensure => present, }
   }
-  
+
   # install worker node software
-  class {"emi_wn":}
-  class {"emi_glexec_wn":}
-  
-  exec {"glexecperms":
-    command => '/bin/chgrp glexec /usr/sbin/glexec ; /bin/chmod 06111 /usr/sbin/glexec'
+  # according to
+  # http://wiki.nikhef.nl/grid/GLExec_Argus_Quick_Installation_Guide
+  # emi_wn is not needed
+  if $install_emi_wn == true {
+    class { 'emi_wn': }
   }
 
-  # setup environment for glExec WN
-  include ('glexecwn::env')
-  include ('glexecwn::site-env')
-
-  # configure VOs
-  class {'vosupport':
-    supported_vos => $supported_vos, #prod.vo.eu-eela.eu: missing voms
-    enable_mappings_for_service => 'ARGUS'
+  $glexec_wn_package = {
+    2 => 'emi-glexec_wn',
+    3 => 'glexec-wn',
   }
 
-  file {"/var/log/glexec":
-    ensure => "directory",
-    owner => "root",
-    group => "root",
+  class { 'emi_glexec_wn':
+    emi_glexec_wn => $glexec_wn_package[$emi_version]
   }
-  
-#  Class["glexecwn::repositories"]->Package["dummydpm","emi-wn","emi-glexec_wn"] -> Exec["glexecperms"] -> File["/var/log/glexec"] -> Class["vosupport","glexecwn::env","glexecwn::site-env"]
-  Class["glexecwn::repositories"] -> Package["dummydpm"] -> Class["emi_wn","emi_glexec_wn"] -> Exec["glexecperms"] -> File["/var/log/glexec"] -> Class["vosupport","glexecwn::env","glexecwn::site-env"]
+
+  file { '/usr/sbin/glexec':
+    ensure => present,
+    group  => 'glexec',
+    mode   => $glexec_permissions,
+  }
+
+  if $install_emi_wn == true {
+    Class['emi_glexec_wn'] -> File['/usr/sbin/glexec']
+  } else {
+    Class['emi_wn'] -> Class['emi_glexec_wn'] -> File['/usr/sbin/glexec']
+  }
 }
