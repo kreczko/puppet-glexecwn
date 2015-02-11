@@ -10,15 +10,15 @@
       "version_requirement": "\u003e\u003d4.1.0"
     },
     {
-      "name": "cernops/fetchcrl",
-      "version_requirement": "\u003e\u003d0.0.2"
+      "name": "CERNOps/fetchcrl",
+      "version_requirement": "\u003e\u003d0.1.0"
     },
     {
       "name": "puppetlabs/concat",
       "version_requirement": "\u003e\u003d1.0.0"
     },
     {
-      "name": "cernops/vosupport",
+      "name": "CERNOps/vosupport",
       "version_requirement": "\u003e\u003d0.0.1"
     }
   ],
