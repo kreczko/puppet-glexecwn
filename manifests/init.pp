@@ -2,6 +2,7 @@ class glexecwn (
   $argus_port         = $glexecwn::params::argus_port,
   $argus_server       = $glexecwn::params::argus_server,
   $emi_version        = $glexecwn::params::emi_version,
+  $emi_repos_ensure   = 'present',
   $glexec_location    = $glexecwn::params::glexec_location,
   $glexec_permissions = $glexecwn::params::glexec_permissions,
   $glite_env_set      = $glexecwn::params::glite_env_set,
@@ -24,7 +25,7 @@ class glexecwn (
     RedHat, SLC, SL, Scientific : {
       require fetchcrl
 
-      class { 'glexecwn::repositories': emi_version => $emi_version, }
+      class { 'glexecwn::repositories': ensure => $emi_repos_ensure, emi_version => $emi_version, }
 
       class { 'glexecwn::install':
         emi_version        => $emi_version,
@@ -59,8 +60,7 @@ class glexecwn (
       class { 'glexecwn::wninfo':
       }
 
-      Class['glexecwn::repositories'] -> Class['glexecwn::install'] -> Class['glexecwn::config'
-        ]
+      Class['glexecwn::install'] -> Class['glexecwn::config' ]
     }
     default                     : {
       # There is some fedora configuration present but I can't actually get it
