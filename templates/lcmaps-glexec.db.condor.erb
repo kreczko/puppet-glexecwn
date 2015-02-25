@@ -1,0 +1,34 @@
+#
+# This lcmaps config will make use of Brian Bockelman's "MOUNT_UNDER_SCRATCH" plugin, that fixes the htcnodor issue of 
+# bind mounting /tmp in the job directories only with the user permissions, thus causing glexec to malfunction and 
+# error out with this kind of error :
+#
+#Feb 15 05:39:21 wn274 glexec[97852]: Failed to write proxyfile /tmp/x509up_u4981.glexec.17556.
+#Feb 15 05:39:21 wn274 glexec[97852]:   errno (13): Permission denied
+#Feb 15 05:39:21 wn274 glexec[97852]:   Failure writing proxy file
+#
+# you will *NEED* to get your hands on a compiled version of this module
+#
+# See : https://github.com/bbockelm/lcmaps-plugins-mount-under-scratch
+#
+# where to look for modules
+path = /usr/lib64/lcmaps
+
+# module definitions
+verify_proxy = "lcmaps_verify_proxy.mod"
+               " -certdir /etc/grid-security/certificates/"
+               " --allow-limited-proxy"
+
+pepc        = "lcmaps_c_pep.mod"
+              "--pep-daemon-endpoint-url https://<%=@argus_server%>:<%=@argus_port%>/authz"
+              " -resourceid http://authz-interop.org/xacml/resource/resource-type/wn"
+              " -actionid http://glite.org/xacml/action/execute"
+              " -capath /etc/grid-security/certificates/"
+              " -pep-certificate-mode implicit"
+              " --use-pilot-proxy-as-cafile" # Add this on RHEL 6 based systems
+
+mkdir = "lcmaps_mount_under_scratch.mod"
+
+glexec_get_account:
+verify_proxy -> pepc
+pepc -> mkdir
