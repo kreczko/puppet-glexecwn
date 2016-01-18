@@ -14,7 +14,7 @@ class glexecwn::argus (
     content => template($template_glexec_conf),
     owner   => 'root',
     group   => 'glexec',
-    mode    => 0640,
+    mode    => '0640',
   }
 
   file { '/etc/lcmaps/lcmaps-glexec.db':
@@ -22,6 +22,6 @@ class glexecwn::argus (
     content => template($template_lcmaps_db),
     owner   => 'root',
     group   => 'root',
-    mode    => 0640,
+    mode    => '0640',
   }
 }
