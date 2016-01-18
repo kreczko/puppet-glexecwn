@@ -20,9 +20,9 @@ class glexecwn (
   $site_name          = $glexecwn::params::site_name,
   $srm_path           = $glexecwn::params::srm_path,
   $supported_vos      = $glexecwn::params::supported_vos,
-  $user_white_list    = $glexecwn::params::user_white_list,) {
+  $user_white_list    = $glexecwn::params::user_white_list,) inherits glexecwn::params {
   case $::operatingsystem {
-    RedHat, SLC, SL, Scientific : {
+    'RedHat', 'SLC', 'SL', 'Scientific' : {
       require fetchcrl
 
       class { 'glexecwn::repositories': ensure => $emi_repos_ensure, emi_version => $emi_version, }
