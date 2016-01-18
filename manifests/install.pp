@@ -15,7 +15,7 @@ class glexecwn::install (
   # http://wiki.nikhef.nl/grid/GLExec_Argus_Quick_Installation_Guide
   # emi_wn is not needed
   if $install_emi_wn == true {
-    class { 'emi_wn': }
+    class { '::glexecwn::emi_wn': }
   }
 
   $glexec_wn_package = {
@@ -23,7 +23,7 @@ class glexecwn::install (
     3 => 'glexec-wn',
   }
 
-  class { 'emi_glexec_wn':
+  class { '::glexecwn::emi_glexec_wn':
     emi_glexec_wn => $glexec_wn_package[$emi_version]
   }
 
@@ -34,8 +34,8 @@ class glexecwn::install (
   }
 
   if $install_emi_wn == true {
-    Class['emi_glexec_wn'] -> File['/usr/sbin/glexec']
+    Class['glexecwn::emi_glexec_wn'] -> File['/usr/sbin/glexec']
   } else {
-    Class['emi_wn'] -> Class['emi_glexec_wn'] -> File['/usr/sbin/glexec']
+    Class['glexecwn::emi_wn'] -> Class['glexecwn::emi_glexec_wn'] -> File['/usr/sbin/glexec']
   }
 }
