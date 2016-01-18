@@ -36,7 +36,7 @@ class glexecwn::env (
     content => template('glexecwn/gridenvcsh.erb'),
     owner   => 'root',
     group   => 'root',
-    mode    => '0644',
+    mode    => 0644,
   }
 
   # site-env

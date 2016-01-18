@@ -28,21 +28,21 @@ class glexecwn::params {
   $site_name          = hiera('site_name', 'unset')
   $srm_path           = hiera('srm_path', '/opt/d-cache/srm')
   $supported_vos      = hiera('supported_vos', [
-    'atlas',
-    'cms',
-    'lhcb',
-    'alice',
-    'dteam',
-    'ops',
+    atlas,
+    cms,
+    lhcb,
+    alice,
+    dteam,
+    ops,
     'vo.aleph.cern.ch',
     'vo.delphi.cern.ch',
     'vo.l3.cern.ch',
     'vo.opal.cern.ch',
-    'ilc',
+    ilc,
     'envirogrids.vo.eu-egee.org',
-    'geant4',
-    'na48',
-    'unosat',
+    geant4,
+    na48,
+    unosat,
     'vo.gear.cern.ch',
     'vo.sixt.cern.ch'])
 
