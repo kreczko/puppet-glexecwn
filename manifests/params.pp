@@ -50,4 +50,12 @@ class glexecwn::params {
 
 
   $user_white_list    = hiera('user_white_list', ' ')
+
+  $template_glexec_conf = 'glexecwn/glexec.conf.erb'
+  $template_lcmaps_db   = 'glexecwn/lcmaps-glexec.db.erb'
+  $loglevel_glexec      = 3
+  $loglevel_lcmaps      = 1
+  $loglevel_lcas        = 1
+  # this is for various debuf log levels in the config
+  $loglevel_debug       = 1
 }
