@@ -58,9 +58,6 @@ class glexecwn (
         supported_vos      => $supported_vos,
       }
 
-      class { 'glexecwn::wninfo':
-      }
-
       Class['glexecwn::install'] -> Class['glexecwn::config' ]
     }
     default                     : {

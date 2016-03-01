@@ -32,6 +32,9 @@ class glexecwn::config (
   # setup environment for glExec WN
   include glexecwn::config::grid_env
 
+  # worker node info
+  include glexecwn::config::wn_info
+
   file { '/etc/glexec.conf':
     ensure  => present,
     content => template($template_glexec_conf),
