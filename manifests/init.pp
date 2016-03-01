@@ -30,18 +30,13 @@ class glexecwn (
   $loglevel_debug       = $glexecwn::params::loglevel_debug,) inherits glexecwn::params {
   case $::operatingsystem {
     'RedHat', 'SLC', 'SL', 'Scientific' : {
-      require fetchcrl
+      include ::fetchcrl
 
       class { 'glexecwn::repositories': ensure => $emi_repos_ensure, emi_version => $emi_version, }
 
-      class { 'glexecwn::install':
-        emi_version        => $emi_version,
-        glexec_permissions => $glexec_permissions,
-        install_dummydpm   => $install_dummydpm,
-        install_emi_wn     => $install_emi_wn,
-      }
+      include ::glexecwn::install
 
-      include glexecwn::config
+      include ::glexecwn::config
 
       Class['glexecwn::install'] -> Class['glexecwn::config' ]
     }
