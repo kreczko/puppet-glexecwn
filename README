@@ -1,1 +1,8 @@
+# Puppet module for the installation and configuration of glexec
+glexec (insert link here) allows local jobs to start as one user but to run the
+payload as a different one. Such transitions are crucial for pilot jobs
+where the payload is downloaded as the job starts and usually belongs to another user
+will less permissive rights.
 
+# Installation
+The glexec module will attempt to install the `emi-wn` package
