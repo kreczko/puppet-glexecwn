@@ -41,22 +41,7 @@ class glexecwn (
         install_emi_wn     => $install_emi_wn,
       }
 
-      class { 'glexecwn::config':
-        gridenvfile        => $gridenvfile,
-        gridmapdir         => $gridmapdir,
-        grid_env_location  => $grid_env_location,
-        glite_env_set      => $glite_env_set,
-        glite_location     => $glite_location,
-        glite_location_var => $glite_location_var,
-        glexec_location    => $glexec_location,
-        gt_proxy_mode      => $gt_proxy_mode,
-        lcg_gfal_infosys   => $lcg_gfal_infosys,
-        lcg_location       => $lcg_location,
-        myproxy_server     => $myproxy_server,
-        site_name          => $site_name,
-        srm_path           => $srm_path,
-        supported_vos      => $supported_vos,
-      }
+      include glexecwn::config
 
       Class['glexecwn::install'] -> Class['glexecwn::config' ]
     }
