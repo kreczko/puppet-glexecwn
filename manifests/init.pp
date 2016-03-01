@@ -2,7 +2,6 @@ class glexecwn (
   $argus_port           = $glexecwn::params::argus_port,
   $argus_server         = $glexecwn::params::argus_server,
   $emi_version          = $glexecwn::params::emi_version,
-  $emi_repos_ensure     = 'present',
   $glexec_location      = $glexecwn::params::glexec_location,
   $glexec_permissions   = $glexecwn::params::glexec_permissions,
   $glite_env_set        = $glexecwn::params::glite_env_set,
@@ -14,6 +13,7 @@ class glexecwn (
   $gt_proxy_mode        = $glexecwn::params::gt_proxy_mode,
   $install_dummydpm     = $glexecwn::params::install_dummydpm,
   $install_emi_wn       = $glexecwn::params::install_emi_wn,
+  $install_repositories = $glexecwn::params::install_repositories,
   $myproxy_server       = $glexecwn::params::myproxy_server,
   $lcg_gfal_infosys     = $glexecwn::params::lcg_gfal_infosys,
   $lcg_location         = $glexecwn::params::lcg_location,
@@ -28,21 +28,21 @@ class glexecwn (
   $loglevel_lcas        = $glexecwn::params::loglevel_lcas,
   # this is for various debuf log levels in the config
   $loglevel_debug       = $glexecwn::params::loglevel_debug,) inherits glexecwn::params {
-  case $::operatingsystem {
-    'RedHat', 'SLC', 'SL', 'Scientific' : {
-      include ::fetchcrl
+  include ::fetchcrl
 
-      class { 'glexecwn::repositories': ensure => $emi_repos_ensure, emi_version => $emi_version, }
-
-      include ::glexecwn::install
-
-      include ::glexecwn::config
-
-      Class['glexecwn::install'] -> Class['glexecwn::config' ]
+  if $install_repositories {
+    class { 'glexecwn::repositories':
+      ensure      => $emi_repos_ensure,
+      emi_version => $emi_version,
     }
-    default                     : {
-      # There is some fedora configuration present but I can't actually get it
-      # to work.
-    }
+    Class['glexecwn::repositories'] -> Class['glexecwn::install']
   }
+
+  class { 'glexecwn::install':
+  }
+
+  class { 'glexecwn::config':
+  }
+
+  Class['glexecwn::install'] -> Class['glexecwn::config']
 }
