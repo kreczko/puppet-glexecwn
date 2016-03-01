@@ -3,6 +3,8 @@
 	<name>glexecwn</name>
 	<comment></comment>
 	<projects>
+		<project>puppet-vosupport</project>
+		<project>puppetlabs-concat</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
