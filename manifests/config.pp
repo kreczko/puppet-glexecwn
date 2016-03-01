@@ -17,28 +17,14 @@ class glexecwn::config (
   $srm_path           = $glexecwn::params::srm_path,
   $supported_vos      = $glexecwn::params::supported_vos,) {
   # setup environment for glExec WN
-  class { 'glexecwn::env':
-    glexec_location    => $glexec_location,
-    glite_env_set      => $glite_env_set,
-    glite_location     => $glite_location,
-    glite_location_var => $glite_location_var,
-    gridenvfile        => $gridenvfile,
-    gridmapdir         => $gridmapdir,
-    grid_env_location  => $grid_env_location,
-    gt_proxy_mode      => $gt_proxy_mode,
-    myproxy_server     => $myproxy_server,
-    lcg_gfal_infosys   => $lcg_gfal_infosys,
-    lcg_location       => $lcg_location,
-    site_name          => $site_name,
-    srm_path           => $srm_path,
-  }
+  include glexecwn::config::grid_env
 
-  # configure VOs
+  # configure VOs if required
   if empty($supported_vos) == false {
     include glexecwn::config::vosupport
     File['/var/log/glexec'] -> Class['glexec::config::vosupport'] -> Class['glexecwn::env']
   } else {
-    File['/var/log/glexec'] -> Class['glexecwn::env']
+    File['/var/log/glexec'] -> Class['glexecwn::config::grid_env']
   }
 
   file { '/var/log/glexec':

@@ -1,17 +1,18 @@
-class glexecwn::env (
-  $gridenvfile        = $glexecwn::params::gridenvfile,
-  $srm_path           = $glexecwn::params::srm_path,
-  $site_name          = $glexecwn::params::site_name,
-  $myproxy_server     = $glexecwn::params::myproxy_server,
-  $lcg_gfal_infosys   = $glexecwn::params::lcg_gfal_infosys,
-  $lcg_location       = $glexecwn::params::lcg_location,
-  $gt_proxy_mode      = $glexecwn::params::gt_proxy_mode,
-  $grid_env_location  = $glexecwn::params::grid_env_location,
-  $gridmapdir         = $glexecwn::params::gridmapdir,
-  $glite_location     = $glexecwn::params::glite_location,
-  $glite_location_var = $glexecwn::params::glite_location_var,
-  $glite_env_set      = $glexecwn::params::glite_env_set,
-  $glexec_location    = $glexecwn::params::glexec_location,) {
+class glexecwn::config::grid_env {
+  $gridenvfile        = $glexecwn::gridenvfile
+  $srm_path           = $glexecwn::srm_path
+  $site_name          = $glexecwn::site_name
+  $myproxy_server     = $glexecwn::myproxy_server
+  $lcg_gfal_infosys   = $glexecwn::lcg_gfal_infosys
+  $lcg_location       = $glexecwn::lcg_location
+  $gt_proxy_mode      = $glexecwn::gt_proxy_mode
+  $grid_env_location  = $glexecwn::grid_env_location
+  $gridmapdir         = $glexecwn::gridmapdir
+  $glite_location     = $glexecwn::glite_location
+  $glite_location_var = $glexecwn::glite_location_var
+  $glite_env_set      = $glexecwn::glite_env_set
+  $glexec_location    = $glexecwn::glexec_location
+
   concat { $gridenvfile:
     owner => 'root',
     group => 'root',
