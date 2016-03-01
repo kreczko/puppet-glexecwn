@@ -35,22 +35,15 @@ class glexecwn::config (
 
   # configure VOs
   if empty($supported_vos) == false {
-    class { 'vosupport':
-      # prod.vo.eu-eela.eu: missing voms
-      supported_vos               => $supported_vos,
-      enable_mappings_for_service => 'ARGUS'
-    }
+    include glexecwn::config::vosupport
+    File['/var/log/glexec'] -> Class['glexec::config::vosupport'] -> Class['glexecwn::env']
+  } else {
+    File['/var/log/glexec'] -> Class['glexecwn::env']
   }
 
   file { '/var/log/glexec':
     ensure => 'directory',
     owner  => 'root',
     group  => 'root',
-  }
-
-  if empty($supported_vos) == false {
-    File['/var/log/glexec'] -> Class['vosupport'] -> Class['glexecwn::env']
-  } else {
-    File['/var/log/glexec'] -> Class['glexecwn::env']
   }
 }

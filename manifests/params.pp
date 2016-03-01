@@ -27,24 +27,27 @@ class glexecwn::params {
 
   $site_name          = hiera('glexecwn::site_name', 'unset')
   $srm_path           = hiera('glexecwn::srm_path', '/opt/d-cache/srm')
-  $supported_vos      = hiera('glexecwn::supported_vos', [
-    'atlas',
-    'cms',
-    'lhcb',
-    'alice',
-    'dteam',
-    'ops',
-    'vo.aleph.cern.ch',
-    'vo.delphi.cern.ch',
-    'vo.l3.cern.ch',
-    'vo.opal.cern.ch',
-    'ilc',
-    'envirogrids.vo.eu-egee.org',
-    'geant4',
-    'na48',
-    'unosat',
-    'vo.gear.cern.ch',
-    'vo.sixt.cern.ch'])
+  $supported_vos      = hiera('glexecwn::supported_vos', [])
+  # examples for supported vos:
+  #  [
+  #    'atlas',
+  #    'cms',
+  #    'lhcb',
+  #    'alice',
+  #    'dteam',
+  #    'ops',
+  #    'vo.aleph.cern.ch',
+  #    'vo.delphi.cern.ch',
+  #    'vo.l3.cern.ch',
+  #    'vo.opal.cern.ch',
+  #    'ilc',
+  #    'envirogrids.vo.eu-egee.org',
+  #    'geant4',
+  #    'na48',
+  #    'unosat',
+  #    'vo.gear.cern.ch',
+  #    'vo.sixt.cern.ch']
+
 
   $user_white_list    = hiera('user_white_list', ' ')
 }
